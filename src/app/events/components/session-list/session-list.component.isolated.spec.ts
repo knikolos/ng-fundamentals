@@ -6,7 +6,7 @@ describe('SessionListComponent', () => {
     let mockAuthService;
     let mockVoterService;
     const sessions = [
-        { id: 1, name: 'prva', level: 'Begginer' },
+        { id: 1, name: 'prva', level: 'Beginner' },
         { id: 2, name: 'vtora', level: 'Intermediate' },
         { id: 3, name: 'treta', level: 'Advanced' }
     ] as ISession[];

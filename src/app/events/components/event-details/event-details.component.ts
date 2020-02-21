@@ -12,22 +12,22 @@ import { ISession } from '../../models/session';
 export class EventDetailsComponent implements OnInit {
   event: IEvent;
   addMode: boolean;
-  filterByLevel: string = "all";
-  sortBy: string = "voters";
+  filterByLevel = 'all';
+  sortBy = 'voters';
 
   constructor(private route: ActivatedRoute, private eventService: EventService) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.event = data["event"];
+      this.event = data.event;
       this.resetState();
     });
   }
 
   resetState() {
     this.addMode = false;
-    this.filterByLevel = "all";
-    this.sortBy = "voters";
+    this.filterByLevel = 'all';
+    this.sortBy = 'voters';
   }
 
   addSession() {
@@ -35,7 +35,7 @@ export class EventDetailsComponent implements OnInit {
   }
 
   saveNewSession(session: ISession) {
-    let nextId = Math.max.apply(null, this.event.sessions.map(x => x.id));
+    const nextId = Math.max.apply(null, this.event.sessions.map(x => x.id));
     session.id = nextId + 1;
     this.event.sessions.push(session);
     this.eventService.saveEvent(this.event)
